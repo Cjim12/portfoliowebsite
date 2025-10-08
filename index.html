@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Jimenez-Hernandez | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #c9546c;
+            --primary-dark: #800020;
+            --secondary: #9ca3af;
+            --bg: #1f1f23;
+            --bg-alt: #2a2a30;
+            --text: #e5e5e7;
+            --text-light: #b4b4b8;
+            --border: #3a3a40;
+            --accent: #9b6b7c;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(31, 31, 35, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, #800020 0%, #a84660 100%);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--bg);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        /* Projects Section */
+        .project-card {
+            background: var(--bg-alt);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .project-status {
+            background: #8b5a6b;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .project-card ul {
+            margin-left: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .project-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Experience Section */
+        .experience-card {
+            background: var(--bg-alt);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .experience-date {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        .experience-company {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        /* Education Section */
+        .education-card {
+            background: var(--bg-alt);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .education-card h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        .education-date {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        .education-details {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-alt);
+            color: var(--text);
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .experience-header,
+            .education-header,
+            .project-header {
+                flex-direction: column;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">CJ</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Carlos Jimenez-Hernandez</h1>
+        <p class="subtitle">Computer Science Student & Full-Stack Developer</p>
+        <p>Building scalable solutions with Java, Python, and React. Passionate about creating innovative projects and collaborating with dynamic engineering teams.</p>
+        <div class="contact-links">
+            <a href="mailto:carlosjimher.320@gmail.com">Email</a>
+            <a href="tel:7325045906">Phone</a>
+            <a href="https://www.linkedin.com/in/carlos-jimenez-hernandez-41847532b" target="_blank">LinkedIn</a>
+            <a href="https://github.com/Cjim12" target="_blank">GitHub</a>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <h2 class="section-title">About Me</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: var(--text-light);">
+            I'm a Computer Science senior at Monmouth University with a Minor in Mathematics, graduating in May 2026. Recognized on the Dean's List for academic excellence, I have a strong foundation in software development, system analysis, and database concepts. I'm seeking internship or entry-level opportunities to contribute my technical skills and grow within a dynamic engineering team.
+        </p>
+    </section>
+
+    <section id="skills" class="container" style="background: var(--bg-alt);">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Languages & Web</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Tailwind CSS</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">WebRTC</span>
+                    <span class="skill-tag">Socket.IO</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Software & Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag">LaTeX</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Systems & Databases</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Shell Scripting</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Oracle</span>
+                    <span class="skill-tag">MongoDB</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>CS Fundamentals</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Data Structures</span>
+                    <span class="skill-tag">Trees</span>
+                    <span class="skill-tag">Graphs</span>
+                    <span class="skill-tag">Dynamic Programming</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="project-card">
+            <div class="project-header">
+                <h3>Skillify – Senior Capstone Project</h3>
+                <span class="project-status">In Progress</span>
+            </div>
+            <p style="color: var(--text-light); margin-bottom: 1rem; font-style: italic;">Personal Project</p>
+            <ul>
+                <li>Peer-to-peer teaching platform built with React, Tailwind CSS, Vite, Express, and MongoDB</li>
+                <li>Designed reusable components, centralized routing, and scalable UI architecture</li>
+                <li>Integrated WebRTC and Socket.IO for real-time video, audio, and messaging</li>
+                <li>Leading full-stack development and team coordination, ensuring reproducible setup, clean codebase, and scalable system design</li>
+            </ul>
+        </div>
+
+        <div class="project-card">
+            <div class="project-header">
+                <h3>HobbyConnect – Social Meetup App</h3>
+                <span class="project-status" style="background: #6b5b95;">Completed</span>
+            </div>
+            <p style="color: var(--text-light); margin-bottom: 1rem; font-style: italic;">Academic Project</p>
+            <ul>
+                <li>Comprehensive design for a social application connecting people with shared hobbies and interests through local events</li>
+                <li>Created full UI/UX design including wireframes, mockups, and user flow diagrams for event posting and discovery features</li>
+                <li>Designed group chat system allowing event participants to communicate and coordinate meetups</li>
+                <li>Developed complete project outline covering system architecture, database schema, and feature specifications</li>
+                <li>Focused on user-centered design principles to enhance community building and social engagement</li>
+            </ul>
+        </div>
+
+        <div class="project-card">
+            <div class="project-header">
+                <h3>Cybersecurity Fundamentals Lab</h3>
+                <span class="project-status" style="background: #7c5869;">Ongoing</span>
+            </div>
+            <p style="color: var(--text-light); margin-bottom: 1rem; font-style: italic;">Personal Project</p>
+            <ul>
+                <li>Hands-on exploration of cybersecurity concepts through building and analyzing security tools in controlled environments</li>
+                <li>Developed basic keyloggers to understand input monitoring, data capture techniques, and detection methods</li>
+                <li>Created simple firewall implementations to learn about network traffic filtering, packet inspection, and access control</li>
+                <li>Studied system vulnerabilities and defensive mechanisms to gain practical knowledge of security architecture</li>
+                <li>Enhanced understanding of ethical hacking principles and the importance of responsible security research</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="experience" class="container" style="background: var(--bg-alt);">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="experience-card">
+            <div class="experience-header">
+                <div>
+                    <h3>IT Internship</h3>
+                    <p class="experience-company">City of Long Branch</p>
+                </div>
+                <span class="experience-date">July 2025 - August 2025</span>
+            </div>
+            <ul>
+                <li>Supported administrative tasks including scheduling, documentation, and preparing presentation materials with strong attention to detail</li>
+                <li>Collaborated across departments, contributed to team meetings, and maintained professional communication throughout the internship</li>
+                <li>Completed technical projects such as installing security cameras, terminating ethernet cables, and independently setting up a Raspberry Pi with signage software</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="education" class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="education-card">
+            <div class="education-header">
+                <div>
+                    <h3>Bachelor of Science in Computer Science</h3>
+                    <p style="color: var(--text-light);">Minor in Mathematics</p>
+                    <p style="color: var(--text-light); margin-top: 0.25rem;">Monmouth University | West Long Branch, NJ</p>
+                </div>
+                <span class="education-date">May 2026</span>
+            </div>
+            <div class="education-details">
+                <p><strong>Grants:</strong> Great Lawn Grant, Pell Grant, Monmouth Academic Grant</p>
+                <p style="margin-top: 0.5rem;"><strong>Relevant Coursework:</strong> System Analysis & Design, Database Concepts, Database Systems, Operating Systems Technology, Software Engineering Concepts, Networking, Advanced Object-Oriented Program Design</p>
+            </div>
+        </div>
+
+        <div class="education-card">
+            <div class="education-header">
+                <div>
+                    <h3>Brookdale Community College</h3>
+                    <p style="color: var(--text-light); margin-top: 0.25rem;">Lincroft, NJ</p>
+                </div>
+                <span class="education-date">September 2022 - August 2024</span>
+            </div>
+            <div class="education-details">
+                <p><strong>Dean's List:</strong> 2023-2024</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Carlos Jimenez-Hernandez. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">Long Branch, New Jersey 07740</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to nav links on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section[id]');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
