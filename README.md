@@ -24,4 +24,34 @@ I'm a recent graduate of Monmouth University with a Bachelor's in Computer Scien
 
 ## Running locally
 
-```bash
+    # Install dependencies
+    npm install
+
+    # Start the dev server
+    npm run dev
+
+    # Build for production
+    npm run build
+
+    # Preview the production build
+    npm run preview
+
+The dev server runs at `http://localhost:5173` by default.
+
+## Project structure
+
+    portfoliowebsite/
+    ├── public/              # Static assets (resume PDF, favicon)
+    ├── src/
+    │   ├── assets/          # Images
+    │   ├── App.jsx          # Main component
+    │   ├── index.css        # Tailwind config + custom theme
+    │   └── main.jsx         # Entry point
+    ├── index.html
+    └── package.json
+
+## Contact
+
+- **Email:** carlosjimher.320@gmail.com
+- **LinkedIn:** [carlos-jimenez-hernandez](https://www.linkedin.com/in/carlos-jimenez-hernandez)
+- **GitHub:** [@Cjim12](https://github.com/Cjim12)
