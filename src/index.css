@@ -1,2 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --color-bg-primary: #232C33;        /* Jet Black - main background */
+  --color-bg-secondary: #33032F;      /* Midnight Violet - cards, sections */
+  --color-text-primary: #FFFDFD;      /* White - body text, headings */
+  --color-text-muted: #5A7D7C;        /* Deep Teal - captions, metadata */
+  --color-accent: #800000;            /* Maroon - CTAs, highlights */
+  --color-accent-secondary: #5A7D7C;  /* Deep Teal - secondary buttons, borders */
+}
+
