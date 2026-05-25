@@ -1,16 +1,27 @@
-# React + Vite
+# Carlos Jimenez-Hernandez — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My personal portfolio website, showcasing my background in cybersecurity, software development, and IT.
 
-Currently, two official plugins are available:
+**Live site:** [portfoliowebsite-gamma-liard.vercel.app](https://portfoliowebsite-gamma-liard.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## About
 
-## React Compiler
+I'm a recent graduate of Monmouth University with a Bachelor's in Computer Science and a Minor in Mathematics, concentrated in cybersecurity. This site highlights my education, experience, projects, and skills.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Built with
 
-## Expanding the ESLint configuration
+- **React** (Vite)
+- **Tailwind CSS v4**
+- **JavaScript**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+- Responsive design (desktop, tablet, mobile)
+- Smooth-scroll navigation with section anchoring
+- Parallax fade effect on the hero section
+- Custom theme using CSS variables
+- Sections for about, experience, achievements, projects, skills, and contact
+
+## Running locally
+
+```bash
